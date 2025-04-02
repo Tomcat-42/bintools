@@ -1,0 +1,13 @@
+CompileFlags:
+  CompilationDatabase: .zig-cache
+
+Diagnostics:
+  ClangTidy:
+    Add:
+      - bugprone-*
+      - cert-*
+      - clang-analyzer-*
+      - performance-*
+      - portability-*
+      - modernize-*
+      - readability-identifier-length
