@@ -9,7 +9,7 @@ const fs = std.fs;
 const CompileCommands = @import("compile_commands");
 
 pub fn build(b: *std.Build) !void {
-    const target = b.standardTargetOptions(.{});
+    const target = b.standardTargetOptions(.{ .default_target = .{ .abi = .musl } });
     const optimize = b.standardOptimizeOption(.{});
     const flags: []const []const u8 = &.{
         "-std=c23",
@@ -56,6 +56,7 @@ pub fn build(b: *std.Build) !void {
         .root_module = bintools_mod,
     });
     const pelf = b.addExecutable(.{
+        .linkage = .static,
         .name = "pelf",
         .root_module = pelf_mod,
     });
