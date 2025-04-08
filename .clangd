@@ -10,4 +10,12 @@ Diagnostics:
       - performance-*
       - portability-*
       - modernize-*
+      - readability-*
+      - google-*
+      - misc-*
+      - misc-const-correctness
+    Remove:
+      - readability-braces-around-statements
       - readability-identifier-length
+      - bugprone-assignment-in-if-condition
+      - google-readability-braces-around-statements

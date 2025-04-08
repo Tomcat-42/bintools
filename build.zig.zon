@@ -1,15 +1,20 @@
 .{
-    .name = .binz,
-    .version = "0.0.0",
-    .fingerprint = 0xbcc3ce3094c77d12, // Changing this has security and trust implications.
+    .name = .bintools,
+    .version = "0.1.0",
+    .fingerprint = 0xf7e436d9cde56c03, // Changing this has security and trust implications.
     .minimum_zig_version = "0.15.0-dev.155+acfdad858",
-    .dependencies = .{},
+    .dependencies = .{
+        .compile_commands = .{
+            .url = "git+https://github.com/Tomcat-42/zig-compile-commands#4bf1ee26e959857b9c11f3ef317233c6e48a0a57",
+            .hash = "zig_compile_commands-0.1.0-NMizVMEUAADFOm3lXQXbGgopwqXnLXH9MoQid2RTMXWz",
+        },
+    },
     .paths = .{
         "build.zig",
         "build.zig.zon",
+        "include",
         "src",
-        // For example...
-        //"LICENSE",
-        //"README.md",
+        "LICENSE",
+        "README.md",
     },
 }
