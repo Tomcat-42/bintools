@@ -25,3 +25,22 @@ jobs:
 
       - name: Build
         run: zig build install
+
+      - name: List zig-out contents (debug)
+        run: ls -R zig-out
+
+      - name: Create tar.gz archive
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          mkdir -p release
+          tar -czvf release/${GITHUB_REF#refs/tags/}.tar.gz -C zig-out .
+
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            release/*.tar.gz
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
